@@ -10,12 +10,14 @@ public class SMS {
     @Autowired
     private VendorProvider vendorProvider;
 
+    @Autowired
+    private Twillo twillo;
+
     public String send(String contactNumber, String message) {
         String messageId = null;
         String vendor = vendorProvider.getVendor("sms");
         if(vendor.equals("Twillo")) {
-            SMSVendor smsVendor = new Twillo();
-            messageId =  smsVendor.send(contactNumber, message);
+            messageId =  twillo.send(contactNumber, message);
         }
         if(messageId == null) {
             vendorProvider.reportError("sms", vendor);
