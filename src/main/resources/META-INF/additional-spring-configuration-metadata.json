@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "DynamoDB.AccessID",
+      "type": "java.lang.String",
+      "description": "Description for DynamoDB.AccessID."
+    },
+    {
+      "name": "otp.tableName",
+      "type": "java.lang.String",
+      "description": "Description for otp.tableName."
+    }
+  ] }
