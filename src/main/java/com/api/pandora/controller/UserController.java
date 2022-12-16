@@ -29,4 +29,7 @@ public class UserController {
                 .body(onboardUserResponse);
     }
 
+    //TODO: Get user details
+
+
 }
