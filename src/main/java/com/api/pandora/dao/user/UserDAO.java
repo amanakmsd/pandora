@@ -6,8 +6,7 @@ public interface UserDAO {
 
     boolean addUser(UserDetails userDetails);
 
-//    UserDetails getUser(String contactNumber);
-
+    UserDetails getUser(String contactNumber);
 
 
 }

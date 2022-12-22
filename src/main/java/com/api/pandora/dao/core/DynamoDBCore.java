@@ -6,6 +6,8 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.*;
+import com.amazonaws.services.dynamodbv2.document.spec.QuerySpec;
+import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.api.pandora.config.AWSConfig;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -73,6 +75,12 @@ public class DynamoDBCore {
             }
         }
         return item;
+    }
+
+    public ItemCollection<QueryOutcome> getDynamoDBItemBasedOnIndex(String tableName, String indexName, QuerySpec querySpec) {
+        Table table = dynamoDBClient.getTable(tableName);
+        Index index = table.getIndex(indexName);
+        return index.query(querySpec);
     }
 
 

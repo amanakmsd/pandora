@@ -28,4 +28,8 @@ public class UserService {
         return new OnboardUserResponse(isUserAdded, userDetails);
     }
 
+    public UserDetails getUser(String contactNumber) {
+        return userDAO.getUser(contactNumber);
+    }
+
 }
